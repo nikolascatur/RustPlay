@@ -3,6 +3,8 @@ use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
 
+use crate::menu::Menu;
+
 pub struct GuestNumber {
     secret_number: i32,
     answer_number: i32,
@@ -51,7 +53,7 @@ impl GuestNumber {
         }
     }
 
-    pub fn run_game_guest(&mut self) {
+    pub fn run_game_guest(&mut self) -> Option<Menu> {
         self.generate_secret_number();
         println!("Input Your Guess Number");
         loop {
@@ -59,7 +61,7 @@ impl GuestNumber {
                 continue;
             }
             if self.checker_answer() {
-                break;
+                return Some(Menu::MENU);
             }
         }
     }
