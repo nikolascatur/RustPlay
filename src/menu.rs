@@ -1,10 +1,19 @@
-use crate::{guess::GuestNumber, util::validation};
+use crate::{
+    crossword::{
+        collection::CollectionWord,
+        crossword::{self, Crossword},
+        word::Word,
+    },
+    guess::GuestNumber,
+    util::{helper, validation},
+};
 use std::io;
 
 pub enum Menu {
     NONE,
     MENU,
     GUESS,
+    CROSSWORD,
     EXIT,
 }
 
@@ -13,10 +22,11 @@ pub struct MenuUI {
 }
 
 impl MenuUI {
-    pub const MENU_LIST: [&str; 3] = [
+    pub const MENU_LIST: [&str; 4] = [
         "Input Your number to Choose Your Menu",
         "1 GUESS Game",
-        "2 EXIT Menu",
+        "2 Crossword",
+        "3 EXIT Menu",
     ];
     pub fn new() -> Self {
         Self {
@@ -28,11 +38,13 @@ impl MenuUI {
     fn number_to_menu(&self, number: &i32) -> Menu {
         match number {
             1 => Menu::GUESS,
-            2 => Menu::EXIT,
+            2 => Menu::CROSSWORD,
+            3 => Menu::EXIT,
             _ => Menu::NONE,
         }
     }
     pub fn show_menu(&mut self) {
+        helper::clear_terminal();
         for menu in MenuUI::MENU_LIST {
             println!("{}", menu)
         }
@@ -64,9 +76,28 @@ impl MenuUI {
         }
     }
 
+    fn go_crossword_game(&mut self) {
+        let word1 = Word::new(&[0, 1, 2, 3, 4, 5, 6], "PEMILIK");
+        let word2 = Word::new(&[6, 14, 22, 30, 38, 46, 54], "KINERJA");
+        let word3 = Word::new(&[28, 36, 44, 52, 60], "SERAP");
+        let collection = CollectionWord::new(&[word1, word2, word3]);
+        let mut crossword = Crossword::new(collection);
+        let result = crossword.input();
+        if let Some(n) = result {
+            match n {
+                Menu::MENU => {
+                    println!("presss Menu Harusnya",);
+                    self.show_menu()
+                }
+                _ => {}
+            }
+        }
+    }
+
     fn go_next(&mut self) {
         match self.input_menu {
             Menu::GUESS => self.go_guess_game(),
+            Menu::CROSSWORD => self.go_crossword_game(),
             Menu::NONE => self.show_menu(),
             _ => println!("Bye Bye ....... "),
         }

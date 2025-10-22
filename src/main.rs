@@ -1,3 +1,4 @@
+mod crossword;
 mod guess;
 mod menu;
 mod util;

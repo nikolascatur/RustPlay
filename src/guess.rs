@@ -3,7 +3,7 @@ use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
 
-use crate::menu::Menu;
+use crate::{menu::Menu, util::helper};
 
 pub struct GuestNumber {
     secret_number: i32,
@@ -23,6 +23,7 @@ impl GuestNumber {
     }
 
     fn input_answer_number(&mut self) -> bool {
+        helper::clear_terminal();
         let mut guess = String::new();
         io::stdin()
             .read_line(&mut guess)
@@ -37,6 +38,7 @@ impl GuestNumber {
     }
 
     fn checker_answer(&self) -> bool {
+        helper::clear_terminal();
         match self.answer_number.cmp(&self.secret_number) {
             Ordering::Less => {
                 println!("Is To Small");
@@ -55,6 +57,7 @@ impl GuestNumber {
 
     pub fn run_game_guest(&mut self) -> Option<Menu> {
         self.generate_secret_number();
+        helper::clear_terminal();
         println!("Input Your Guess Number");
         loop {
             if !self.input_answer_number() {
