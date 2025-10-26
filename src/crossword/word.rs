@@ -1,7 +1,7 @@
 #[derive(Clone)]
 pub struct Word {
-    arr_index: Vec<i32>,
-    word: String,
+    pub arr_index: Vec<i32>,
+    pub word: String,
 }
 
 impl Word {

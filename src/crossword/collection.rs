@@ -2,7 +2,7 @@ use crate::crossword::word::Word;
 
 #[derive(Clone)]
 pub struct CollectionWord {
-    words: Vec<Word>,
+    pub words: Vec<Word>,
 }
 
 impl CollectionWord {

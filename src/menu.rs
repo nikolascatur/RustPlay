@@ -80,15 +80,14 @@ impl MenuUI {
         let word1 = Word::new(&[0, 1, 2, 3, 4, 5, 6], "PEMILIK");
         let word2 = Word::new(&[6, 14, 22, 30, 38, 46, 54], "KINERJA");
         let word3 = Word::new(&[28, 36, 44, 52, 60], "SERAP");
-        let collection = CollectionWord::new(&[word1, word2, word3]);
+        let word4 = Word::new(&[51, 52, 53, 54], "RAJA");
+        let collection = CollectionWord::new(&[word1, word2, word3, word4]);
         let mut crossword = Crossword::new(collection);
+        crossword.load_data();
         let result = crossword.input();
         if let Some(n) = result {
             match n {
-                Menu::MENU => {
-                    println!("presss Menu Harusnya",);
-                    self.show_menu()
-                }
+                Menu::MENU => self.show_menu(),
                 _ => {}
             }
         }
