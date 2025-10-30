@@ -4,31 +4,33 @@ A playground and starter kit in Rust for experimentation, learning, and rapid pr
 
 🚀 What is RustPlay?
 
-RustPlay is a lightweight Rust project designed to serve as your go-to sandbox for testing ideas, writing small utilities, or exploring Rust libraries and patterns. Whether you’re just getting started with Rust or you want a minimal base to build from, this repo gives you a clean, ready-to-go structure.
+RustPlay is a lightweight Rust project designed to serve as your go-to sandbox for testing ideas, writing small utilities,
+or exploring Rust libraries and patterns. Whether you’re just getting started with Rust or 
+you want a minimal base to build from, this repo gives you a clean, ready-to-go structure.
 
 🎯 Why use RustPlay?
 
-Clean setup: Comes with Cargo.toml, src/ folder and baseline config so you can dive in right away.
+- Clean setup: Comes with Cargo.toml, src/ folder and baseline config so you can dive in right away.
 
-Focus on code: No heavy scaffolding or complex architecture — just Rust and your ideas.
+- Focus on code: No heavy scaffolding or complex architecture — just Rust and your ideas.
 
-Learning-friendly: Ideal for trying out new crates, writing experiments, or creating small tools.
+- Learning-friendly: Ideal for trying out new crates, writing experiments, or creating small tools.
 
-Flexible: You can extend it into a CLI, a library, a web service, or whatever your next Rust project may become.
+- Flexible: You can extend it into a CLI, a library, a web service, or whatever your next Rust project may become.
 
 📦 Features
 
-Pure Rust (100 %) codebase.
+- Pure Rust (100 %) codebase.
 
-Standard Cargo project structure: src/main.rs, etc.
+- Standard Cargo project structure: src/main.rs, etc.
 
-Git-ignorance for lockfiles included (.gitignore).
+- Git-ignorance for lockfiles included (.gitignore).
 
-Ready to build and run with cargo build / cargo run.
+- Ready to build and run with cargo build / cargo run.
 
 🧪 Getting Started
 
-Clone the repository:
+1. Clone the repository:
 
 git clone https://github.com/nikolascatur/RustPlay.git
 cd RustPlay
